@@ -24,7 +24,7 @@ cmsenv
 ### Get customized NanoAOD producers
 
 ```bash
-git clone ssh://git@gitlab.cern.ch:7999/hqu/NanoTuples.git PhysicsTools/NanoTuples -b 102X
+git clone git@github.com:Quantumapple/CoffeaHarvester.git PhysicsTools/NanoTuples -b CMSSW10215
 ```
 
 ### Compile
