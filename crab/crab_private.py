@@ -7,9 +7,9 @@ import re
 import logging
 
 from CRABAPI.RawCommand import crabCommand
-from CRABClient.ClientExceptions import ClientException
+#from CRABClient.ClientExceptions import ClientException
 from httplib import HTTPException
-
+#### CRAB private submission ####
 
 def natural_sort(l):
     convert = lambda text: int(text) if text.isdigit() else text.lower()
@@ -74,11 +74,12 @@ def createConfig(args, dataset):
     config.JobType.sendExternalFolder = args.send_external
     config.JobType.numCores = args.num_cores
     config.JobType.maxMemoryMB = args.max_memory
+    config.JobType.allowUndistributedCMSSW = True
 
     config.Data.inputDBS = 'global'
     #config.Data.inputDataset = dataset
     config.Data.userInputFiles = open(dataset).readlines()
-    config.Data.outputPrimaryDataset = procname 
+    config.Data.outputPrimaryDataset = procname
     config.Data.splitting = args.splitting
     config.Data.unitsPerJob = args.units_per_job
     #if args.no_publication:
@@ -209,7 +210,7 @@ def main():
                         help='Path to the CMSSW configuration file'
                         )
     parser.add_argument('-s', '--splitting',
-                        default='FileBased', choices=['Automatic', 'FileBased', 'LumiBased', 'EventAwareLumiBased'],
+                        default='Automatic', choices=['Automatic', 'FileBased', 'LumiBased', 'EventAwareLumiBased'],
                         help='Job splitting method. Default: %(default)s'
                         )
     parser.add_argument('-n', '--units-per-job',
