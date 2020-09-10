@@ -7,7 +7,7 @@ import re
 import logging
 
 from CRABAPI.RawCommand import crabCommand
-#from CRABClient.ClientExceptions import ClientException
+from CRABClient.ClientExceptions import ClientException
 from httplib import HTTPException
 #### CRAB private submission ####
 
