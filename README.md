@@ -193,4 +193,13 @@ More options of this `crab.py` script can be found with:
 ./crab.py -h
 ```
 
+### Private MC Production
+**Step 1**: Prepare txt file including eos path to privately produced MiniAODs. For example, if MiniAOD saved at lpc cluster, the path to the file should be
+```bash
+root://cmseos.fnal.gov//store/path/to/the/MiniAOD
+```
+**Step 2**: Use the `crab_private.py` script to submit the CRAB jobs. 
 
+```bash
+python crab.py -p mc_NANO_[year].py -o /store/group/lpccoffea/coffeabeans/NanoAODv6/nano_[year] -t NanoTuples-[year] -i input.txt  --send-external -s FileBased -n 1 --work-area crab_projects_mc_[year] --dryrun
+```
