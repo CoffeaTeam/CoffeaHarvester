@@ -111,8 +111,9 @@ cd $CMSSW_BASE/src/PhysicsTools/NanoTuples/crab
 cmsenv
 # set up grid proxy
 voms-proxy-init -rfc -voms cms --valid 168:00
-# set up CRAB env (must be done after cmsenv)
-source /cvmfs/cms.cern.ch/crab3/crab_slc7.sh
+# set up CRAB env (must be done after cmsenv) https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCRAB3Tutorial#CRAB_environment
+source /cvmfs/cms.cern.ch/common/crab-setup.sh
+
 ```
 
 **Step 0**: Choose the right python config file. This is the -p argument to crab.py. You will also need this to determine the splitting parameters (Step 1 below). See section above for how the configs were generated. Note that you need a different config file for Run2018ABC vs Run2018D. The eras for 2018 are also separated into two input text files with the dataset names.
